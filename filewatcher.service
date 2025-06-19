@@ -1,0 +1,25 @@
+[Unit]
+Description=File Watcher Instance %i
+
+[Service]
+Type=simple
+ExecStart=/root/filewatcher/filewatcher.sh %i
+KillMode=control-group
+TimeoutStopSec=8
+KillSignal=SIGTERM
+FinalKillSignal=SIGKILL
+
+[Install]
+WantedBy=multi-user.target[Unit]
+Description=File Watcher Instance %i
+
+[Service]
+Type=simple
+ExecStart=/root/filewatcher/filewatcher.sh %i
+KillMode=control-group
+TimeoutStopSec=8
+KillSignal=SIGTERM
+FinalKillSignal=SIGKILL
+
+[Install]
+WantedBy=multi-user.target
