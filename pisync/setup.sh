@@ -41,8 +41,18 @@ case $choice in
 
         mkdir -p $SERVICE_USER_HOME/.ssh
 
+        # copy the filewatcher service file to /etc/systemd/system/
+        cp ../filewatcher.service /etc/systemd/system/filewatcher@pisync-ssh-push.service
+
         echo "The public key from the secondary PiHole will need to be added to:"
         echo "${SERVICE_USER_HOME}/.ssh/authorized_keys"
+
+        echo "After adding the public key:"
+        echo " systemctl daemon-reload"
+        echo " systemctl restart filewatcher@pisync-ssh-push.service"
+        echo " systemctl enable filewatcher@pisync-ssh-push.service"
+        echo " systemctl status filewatcher@pisync-ssh-push.service"
+
 
         ;;
     s)
