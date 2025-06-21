@@ -32,10 +32,10 @@ case $choice in
         echo "Installing pisync-push..."
         ensure_service_user
 
-        // Copy the pisync push config to the filewatcher directory
+        # Copy the pisync push config to the filewatcher directory
         cp pisync-push.conf $FILEWATCHER_CONFIG_DIR/
 
-        // Copy the pisync ssh push script to the service user home directory
+        # Copy the pisync ssh push script to the service user home directory
         cp pisync-ssh-push.sh $SERVICE_USER_HOME/
 
         mkdir -p $SERVICE_USER_HOME/.ssh
@@ -49,14 +49,14 @@ case $choice in
         ensure_service_user
 
 
-        // Copy the pisync push config to the filewatcher directory
+        # Copy the pisync push config to the filewatcher directory
         cp pisync-reciever.conf $FILEWATCHER_CONFIG_DIR/
 
-        // Copy the pisync ssh push script to the service user home directory
+        # Copy the pisync ssh push script to the service user home directory
         cp pisync-receiver.sh $SERVICE_USER_HOME/
 
 
-        // Create the pisync ssh key if this is for the receiver
+        # Create the pisync ssh key if this is for the receiver
         ssh-keygen -t rsa -b 4096 -C "PiSync Service" -N "" -f $SERVICE_USER_HOME/.ssh/id_rsa_service
 
         echo ""
