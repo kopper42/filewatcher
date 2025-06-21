@@ -33,7 +33,7 @@ case $choice in
         ensure_service_user
 
         # Copy the pisync push config to the filewatcher directory
-        cp ./pisync-push.conf $FILEWATCHER_CONFIG_DIR/
+        cp ./pisync-ssh-push.conf $FILEWATCHER_CONFIG_DIR/
 
         # Copy the pisync ssh push script to the service user home directory
         cp ./pisync-ssh-push.sh $SERVICE_USER_HOME/
