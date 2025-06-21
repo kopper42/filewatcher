@@ -83,7 +83,7 @@ case $choice in
 
 
         # start and enable the filewatcher service
-        systemctl start filewatcher@pisync-receiver.service
+        systemctl restart filewatcher@pisync-receiver.service
         systemctl enable filewatcher@pisync-receiver.service
         ;;
     *)
