@@ -72,7 +72,8 @@ case $choice in
         cat $SERVICE_USER_HOME/.ssh/id_rsa_service.pub
         echo ""
 
-        # pisync-receiver installation
+        systemctl start filewatcher@pisync-receiver.service
+        systemctl enable filewatcher@pisync-receiver.service
         ;;
     *)
         echo "Exiting."
