@@ -77,6 +77,7 @@ case $choice in
 
         # copy the filewatcher service file to /etc/systemd/system/
         cp ../filewatcher.service /etc/systemd/system/filewatcher@pisync-receiver.service
+        chmod +x /etc/systemd/system/filewatcher@pisync-receiver.service
 
         # reload the systemd daemon
         systemctl daemon-reload
