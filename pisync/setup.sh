@@ -37,6 +37,7 @@ case $choice in
 
         # Copy the pisync ssh push script to the service user home directory
         cp ./pisync-ssh-push.sh $SERVICE_USER_HOME/
+        chmod +x $SERVICE_USER_HOME/pisync-ssh-push.sh
 
         mkdir -p $SERVICE_USER_HOME/.ssh
 
@@ -54,6 +55,8 @@ case $choice in
 
         # Copy the pisync ssh push script to the service user home directory
         cp ./pisync-receiver.sh $SERVICE_USER_HOME/
+        chmod +x $SERVICE_USER_HOME/pisync-receiver.sh
+        
 
         mkdir -p $SERVICE_USER_HOME/.ssh
 
