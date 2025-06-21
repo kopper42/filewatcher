@@ -57,8 +57,10 @@ case $choice in
 
         mkdir -p $SERVICE_USER_HOME/.ssh
 
-        # Create the pisync ssh key if this is for the receiver
-        ssh-keygen -t rsa -b 4096 -C "PiSync Service" -N "" -f $SERVICE_USER_HOME/.ssh/id_rsa_service
+        # Create the pisync ssh key if this is for the receiver if it doesn't exist
+        if [ ! -f $SERVICE_USER_HOME/.ssh/id_rsa_service ]; then
+            ssh-keygen -t rsa -b 4096 -C "PiSync Service" -N "" -f $SERVICE_USER_HOME/.ssh/id_rsa_service
+        fi  
 
         echo ""
         echo ===============================================================
