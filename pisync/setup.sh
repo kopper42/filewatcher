@@ -5,6 +5,16 @@ SERVICE_USER_HOME="/opt/$SERVICE_USER"
 FILEWATCHER_CONFIG_DIR="/etc/filewatcher"
 
 
+ensure_service_user() {
+    echo "Checking for $SERVICE_USER user..."
+    if( id $SERVICE_USER > /dev/null 2>&1 ); then
+        echo "User $SERVICE_USER exists."
+    else
+        useradd -r -s /sbin/nologin -c "PiSync Service User" -m -d $SERVICE_USER_HOME $SERVICE_USER
+        echo "User $SERVICE_USER created."
+    fi
+}
+
 echo "PiSync Setup"
 echo "--------------------------------------"
 echo "This script will set up the PiSync configuration for the Filewatcher service."
@@ -70,12 +80,3 @@ esac
 
 
 
-ensure_service_user() {
-    echo "Checking for $SERVICE_USER user..."
-    if( id $SERVICE_USER > /dev/null 2>&1 ); then
-        echo "User $SERVICE_USER exists."
-    else
-        useradd -r -s /sbin/nologin -c "PiSync Service User" -m -d $SERVICE_USER_HOME $SERVICE_USER
-        echo "User $SERVICE_USER created."
-    fi
-}
