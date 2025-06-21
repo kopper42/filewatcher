@@ -50,7 +50,7 @@ case $choice in
 
 
         # Copy the pisync push config to the filewatcher directory
-        cp ./pisync-reciever.conf $FILEWATCHER_CONFIG_DIR/
+        cp ./pisync-receiver.conf $FILEWATCHER_CONFIG_DIR/
 
         # Copy the pisync ssh push script to the service user home directory
         cp ./pisync-receiver.sh $SERVICE_USER_HOME/
