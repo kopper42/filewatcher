@@ -72,6 +72,14 @@ case $choice in
         cat $SERVICE_USER_HOME/.ssh/id_rsa_service.pub
         echo ""
 
+        # copy the filewatcher service file to /etc/systemd/system/
+        cp filewatcher.service /etc/systemd/system/filewatcher@pisync-receiver.service
+
+        # reload the systemd daemon
+        systemctl daemon-reload
+
+
+        # start and enable the filewatcher service
         systemctl start filewatcher@pisync-receiver.service
         systemctl enable filewatcher@pisync-receiver.service
         ;;
