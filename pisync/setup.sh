@@ -45,7 +45,7 @@ case $choice in
         cp ../filewatcher.service /etc/systemd/system/filewatcher@pisync-ssh-push.service
 
         echo "The public key from the secondary PiHole will need to be added to:"
-        echo "${SERVICE_USER_HOME}/.ssh/authorized_keys"
+        echo "${SERVICE_USER_HOME}/.ssh/id_rsa_service.pub"
 
         echo "After adding the public key:"
         echo " systemctl daemon-reload"
